@@ -34,7 +34,6 @@ public class Product {
 	private boolean activeFlag;
 	private long prize;
 
-	@DBRef
-	private Category categoryName;
+	private Category category;
 
 }

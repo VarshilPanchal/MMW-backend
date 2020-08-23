@@ -1,6 +1,7 @@
 package com.example.mmw.controller;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,4 +80,10 @@ public class ProductController {
 		return ResponseEntity.ok().body(productService.updateProduct(entity));
 
 	}
+
+	@GetMapping(value = "products/category/{name}")
+	public ResponseEntity<List<Product>> getProductsByCategory(@PathVariable String name) {
+		return ResponseEntity.ok().body(productRepository.getProductsByCategory(name));
+	}
+
 }

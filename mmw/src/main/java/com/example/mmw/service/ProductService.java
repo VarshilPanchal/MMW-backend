@@ -7,7 +7,6 @@ import static org.springframework.data.mongodb.core.FindAndModifyOptions.options
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 import static org.springframework.data.mongodb.core.query.Query.query;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Update;
@@ -22,7 +21,6 @@ public class ProductService {
 	@Autowired
 	private ProductRepository productRepository;
 
-	
 	@Autowired
 	private MongoOperations mongoOperations;
 
@@ -34,7 +32,6 @@ public class ProductService {
 
 	}
 
-	
 	public Product updateProduct(Product product) throws Exception {
 
 		Optional<Product> productDetail = productRepository.findById(product.getId());
@@ -45,6 +42,7 @@ public class ProductService {
 			updateProduct.setImage(product.getImage());
 			updateProduct.setDetail(product.getDetail());
 			updateProduct.setPrize(product.getPrize());
+			updateProduct.setCategory(product.getCategory());
 			productRepository.save(updateProduct);
 			return updateProduct;
 		} else {
